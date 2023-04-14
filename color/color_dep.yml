@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: colorapp
+  labels:
+    app: colorapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: colorapp
+  template:
+    metadata:
+      labels:
+        app: colorapp
+    spec:
+      containers:
+      - name: nginx
+        image: sreeharshav/rollingupdate:v5
+        ports:
+        - containerPort: 80
+
